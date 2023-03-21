@@ -3,18 +3,22 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   preencher: {
     flex: 1,
+    justifyContent: "space-between",
+  
+
+
   },
   safeA:
   {
     flex:1,
     backgroundColor: '#E4F4CD',
-
   },
   titulo:
-  {
+  { fontWeight:'bold',
     fontSize: 24,
     fontStyle: 'normal',
-    margin: 20,
+    margin: 25,
+    textAlign:'left',
     
   },
   imagem: {
@@ -29,19 +33,28 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 10,
-  
+    shadowOpacity:0.6,
   },
   section: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#E4F4CD',
-    borderWidth: 0.5,
     borderColor: '#C1F378',
-    height: 40,
     borderRadius: 30,
-    margin: 10,
+    margin: 20,
+    shadowColor:0.6,
+  },
+  secaoEventos:
+  {
+      
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderColor: '#C1F378',
+    borderRadius: 30,
+    shadowColor:0.6,
+
   },
 
   secaoImagem: {
@@ -54,23 +67,37 @@ export default StyleSheet.create({
   },
   retangulo:
   { flex: 1,
-    justifyContent: 'left',
-    alignItems: 'left',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
     backgroundColor: '#C1F378',
     borderWidth: 0.5,
     borderColor: '#C1F378',
-    height: 300,
     borderRadius: 30,
-  },
+    opacity: 0.75  },
   imagemdePerfil:
   {
-    padding: 19, 
+    padding: 25, 
     margin: 5, 
     height: 25, 
     width: 25, 
     resizeMode: 'stretch', 
     flexDirection: 'row-reverse',
-  }
+    alignItems: 'flex-end',
+    borderRadius: 200 / 2,
+    shadowOpacity:0.6
+
+    
+  },
+  containerImagemPerfil:
+  {
+    flexDirection:'row-reverse',
+    position:'absolute',
+    marginLeft:340,
+    marginTop:50,
+    shadowOpacity:0.3
+
+
+  },
   
 });
 

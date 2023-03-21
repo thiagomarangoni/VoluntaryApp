@@ -1,6 +1,7 @@
 import React from "react";
 import Item from "./item";
 import estilos from "../../estilos";
+import Botao from "../../componentes/botao";
 import {SafeAreaView, StatusBar, Text, FlatList,TextInput, View,Image } from "react-native"; //StatusBar - Para Android / SafeAreaView - IOS
 
 
@@ -38,35 +39,43 @@ export default function Eventos() //lista eventos
 {
 return <SafeAreaView style ={estilos.safeA}> 
     <StatusBar/>
-    <Image source={require('/Users/Thiago Marangoni/Desktop/Alura/vonluntaryApp/assets/lupa.png')}
+
+    <View style={estilos.containerImagemPerfil}>
+        <Image source={require('../../../assets/imagemPerfil.png')}
             style={estilos.imagemdePerfil}/>
-    <Text  
-    style={estilos.titulo}> 
-    Pesquisar eventos: 
-         </Text>
-    <View View style = {estilos.retangulo}>
-    <View View style={estilos.container}>
-        <View View style={estilos.section}>
-    <Image
-             source={require('/Users/Thiago Marangoni/Desktop/Alura/vonluntaryApp/assets/lupa.png')}
-            style={estilos.imagem}
-          />
-    <TextInput
-    style={{flex: 1}}
-    placeholder="Pesquisar evento" />
-        </View>
     </View>
+
+
+    <Text style={estilos.titulo}> 
+    Pesquisar eventos 
+        </Text>
+
+    <View View style = {estilos.retangulo}>
+
+        <View View style={estilos.container}>
+            <View View style={estilos.section}>
+                <Image
+                source={require('../../../assets/lupa.png')}
+                style={estilos.imagem}
+                />
+                <TextInput
+                style={{flex: 1}}
+                placeholder="Pesquisar evento" />
+            </View>
+        </View>
     
-    <Text style={estilos.titulo}>
-        Eventos:
-         </Text>
-    <FlatList  
-     data={eventos}
-     renderItem = {({item}) => <Item {...item} /> }
-     keyExtractor ={({id}) => String(id)}
-     />
-     </View>
-     </SafeAreaView>
+        <Text style={estilos.titulo}>
+            Eventos:
+            </Text>
+        <View View style = {{flex:5}}>   
+            <FlatList 
+                data={eventos}
+                renderItem = {({item}) => <Item {...item} /> }
+                keyExtractor ={({id}) => String(id)}
+                acao={() => {}} />
+                </View>
+    </View>
+</SafeAreaView>
 
  
 
