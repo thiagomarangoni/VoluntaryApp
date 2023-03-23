@@ -28,17 +28,8 @@ export default StyleSheet.create({
     borderColor: '#C1F378',
     borderRadius: 30,
     margin: 20,
-    ...Platform.select({
-      ios: {
-        shadowColor: '#000',
-        shadowOpacity: 0.5,
-        shadowOffset: { width: 0, height: 2 },
-        shadowRadius: 4,
-      },
-      android: {
-        elevation: 5,
-      },
-    }),
+    ...verificarPlataforma() 
+
   },
   secaoEventos:
   {
@@ -47,17 +38,8 @@ export default StyleSheet.create({
     alignItems: 'center',
     borderColor: '#C1F378',
     borderRadius: 30,
-    ...Platform.select({
-      ios: {
-        shadowColor: '#000',
-        shadowOpacity: 0.25,
-        shadowOffset: { width: 0, height: 2 },
-        shadowRadius: 4,
-      },
-      android: {
-        elevation: 5,
-      },
-    }),
+    ...verificarPlataforma() 
+
   },
   retangulo:
   { flex:1,
@@ -79,17 +61,8 @@ export default StyleSheet.create({
     flexDirection: 'row-reverse',
     alignItems: 'flex-end',
     borderRadius: 200 / 2,
-    ...Platform.select({
-      ios: {
-        shadowColor: '#000',
-        shadowOpacity: 0.25,
-        shadowOffset: { width: 0, height: 2 },
-        shadowRadius: 4,
-      },
-      android: {
-        elevation: 9,
-      },
-    }),
+    ...verificarPlataforma() 
+
   },
   container: {
     flexDirection: 'row-reverse',
@@ -130,7 +103,22 @@ export const cores = {
   verdeEscuro: '#42755D',
   verdeClaroFundo: '#E4F4CD',
   verdeCaixaSelecao: '#108B51',
+  verdeClaroPreenchimento:'#C1F378'
   
-
 };
+
+export function verificarPlataforma() //verifica a plataforma para aplicar o comando correto de sombra ou elevation
+ {
+  if (Platform.OS === 'ios') {
+    return {
+      shadowColor: '#000',
+      shadowOpacity: 0.5,
+      shadowOffset: { width: 0, height: 2 },
+      shadowRadius: 4,
+    };
+  } else {
+    return {//adicionar aqui a sombrado do android
+    };
+  }
+}
 

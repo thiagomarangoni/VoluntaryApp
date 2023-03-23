@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { cores } from '../../../estilos';
+import { verificarPlataforma } from '../../../estilos';
+
 
 export default StyleSheet.create({
   nome: {
@@ -7,7 +9,8 @@ export default StyleSheet.create({
     color: cores.cinza,
     fontWeight: 'bold',
     fontSize: 18,
-    margin: 10
+    margin: 10,
+    backgroundColor:'transparent'
   },
   data: {
     color: cores.verdeEscuro,
@@ -31,17 +34,8 @@ export default StyleSheet.create({
     borderRadius: 30,
     textAlign: 'center',
     backgroundColor: '#E4F4CD',
-    ...Platform.select({
-      ios: {
-        shadowColor: '#000',
-        shadowOpacity: 0.5,
-        shadowOffset: { width: 0, height: 2 },
-        shadowRadius: 4,
-      },
-      android: {
-        elevation: 5,
-      },
-    }),  },
+    ...verificarPlataforma() 
+  },
   divisor: {
     marginHorizontal: 5,
     borderBottomWidth: 1,
