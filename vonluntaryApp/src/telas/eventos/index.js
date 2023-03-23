@@ -1,17 +1,13 @@
 import React from "react";
 import Item from "./item";
 import estilos from "../../estilos";
-import Botao from "../../componentes/botao";
-import {SafeAreaView, StatusBar, Text, FlatList,TextInput, View,Image } from "react-native"; //StatusBar - Para Android / SafeAreaView - IOS
-
-
+import {SafeAreaView, StatusBar, Text, FlatList,TextInput, View,Image  } from "react-native"; //StatusBar - Para Android / SafeAreaView - IOS
 const eventos = [
     {
         id:1,
         nome: "Coleta de lixo na Praia",
         dataEvento: "29/05/2023",
         localEvento: "Santos -SP",
-        descricao: "Será realizada coleta de lixo, na praia do Gonzaga. ",
         contPessoas: 15
     },
     {
@@ -19,7 +15,6 @@ const eventos = [
         nome: "Arrecadação de casacos",
         dataEvento: "20/04/2023",
         localEvento: "Santos -SP",
-        descricao: "Arrecadação de casacos para a instituição Fofas da Rua. ",
         contPessoas: 30
 
     },
@@ -28,7 +23,6 @@ const eventos = [
         nome: "Visitar casa de repouso",
         dataEvento: "30/04/2023",
         localEvento: "Praia Grande -SP",
-        descricao: "Visita a casa de repouso ",
         contPessoas: 4
 
     }
@@ -37,18 +31,15 @@ const eventos = [
 
 export default function Eventos() //lista eventos
 {
-return <SafeAreaView style ={estilos.safeA}> 
+return <SafeAreaView style ={estilos.safeAreaStyle}> 
     <StatusBar/>
-
-    <View style={estilos.containerImagemPerfil}>
-        <Image source={require('../../../assets/imagemPerfil.png')}
-            style={estilos.imagemdePerfil}/>
+    
+    <View style={estilos.container}>
+      <View style={estilos.containerImagemPerfil}>
+        <Image source={require('../../../assets/imagemPerfil.png')} style={estilos.imagemdePerfil} />
+      </View>
+      <Text style={estilos.tituloPesquisar}>Pesquisar eventos</Text>
     </View>
-
-
-    <Text style={estilos.titulo}> 
-    Pesquisar eventos 
-        </Text>
 
     <View View style = {estilos.retangulo}>
 
@@ -59,15 +50,16 @@ return <SafeAreaView style ={estilos.safeA}>
                 style={estilos.imagem}
                 />
                 <TextInput
-                style={{flex: 1}}
+                style={estilos.preencher}
                 placeholder="Pesquisar evento" />
             </View>
         </View>
-    
+
+    <View View style = {estilos.preencher}>   
         <Text style={estilos.titulo}>
             Eventos:
-            </Text>
-        <View View style = {{flex:5}}>   
+        </Text>
+
             <FlatList 
                 data={eventos}
                 renderItem = {({item}) => <Item {...item} /> }
@@ -76,7 +68,4 @@ return <SafeAreaView style ={estilos.safeA}>
                 </View>
     </View>
 </SafeAreaView>
-
- 
-
 }
